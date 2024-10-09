@@ -1,0 +1,53 @@
+body {
+    background-color: #2e4a83;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    background-color: #fcfaee;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1em;
+    margin: auto;
+    margin-top: 350px;
+}
+
+.input-display {
+    background-color: #fcfaee;
+    font-size: larger;
+    outline: none;
+    border: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+button {
+    color: #fcfaee;
+    font-weight: bold;
+    font-size: larger;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    margin: 10px;
+}
+
+.pin-button {
+    background-color: #d20326;
+}
+
+.pin-button:hover {
+    background-color: #dc092c;
+}
+
+.pin-button:active {
+    background-color: #b60522;
+}
