@@ -7,12 +7,19 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="todo-list">
-            <h1 class="title">TODO</h1>
-            <input type="text" class="input-display" placeholder="I want to do...">
+    <div id="container">
+        <div id="todo-list">
+            <h1>To-do list</h2>
             <div class="row">
-                <button type="submit" class="pin-button">Pin</button>
+                <input type="text" id="input-display" placeholder="I want to do...">
+                <button type="submit" id="pin-button" onclick="pinTheList()">Pin</button>
+            </div>
+            <div id="list-input">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
         </div>
     </div>
