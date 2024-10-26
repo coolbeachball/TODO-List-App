@@ -1,14 +1,11 @@
 
-HI! I am **CoolBeachBall**
+HI!👋 I am **CoolBeachBall**
 --------------------------
 
-I am creating a TODO List App (not exactly an app but a website) 
-to get notes both for myself and for yourselves!
-without reling on other existing TODO List!
+I have created a **Todo list app**📝 that allows me 
+to add a *task*☑️ to do when I need something to do
 
-I am searching colaborators to help me!
+💥this project is **free** and **open-source🔎**!💥
+---------------------------------------------
 
-this project is free to use
-
-this project will be free forever!
-
+this project was made my **CoolBeachBall**
