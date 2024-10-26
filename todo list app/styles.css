@@ -35,7 +35,7 @@ body {
     margin: 1em;
 }
 
-#input-display {
+#input-box {
     background-color: #ededea;
     font-size: larger;
     outline: none;
@@ -66,6 +66,7 @@ body {
     background-color: #b60522;
 }
 
-#list-input li {
+#list-container li {
     list-style-type: none;
 }
+

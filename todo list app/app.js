@@ -1,8 +1,14 @@
-const pinButton = document.getElementsByClassName('pin-button');
-const inputDisplay = document.getElementsByClassName('input-display');
-const listInput = document.getElementsByClassName('list-input');
-const list = document.querySelectorAll("li");
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
 
-function pinTheList() {
-     
+function addTask() {
+    if (inputBox.value === "") {
+        window.alert("You must add a task!");
+    }
+    else {
+        let li = document.createElement("li");
+        li.innerHTML = inputBox.value;
+        listContainer.appendChild(li);
+    }
+    inputBox.value = "";
 }
