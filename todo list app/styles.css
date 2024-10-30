@@ -4,7 +4,7 @@ body {
 }
 
 #container {
-    background-color: #0946c0;
+    background: linear-gradient(#163172, #1E56A0);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -19,24 +19,27 @@ body {
     align-items: center;
     max-width: 28em;
     width: 100%;
-    background-color: #fcfaee;
+    background: linear-gradient(#D6E4F0, #F6F6F6);
     border-radius: 1em;
     padding: 1em;
     margin: auto;
+    box-shadow: 0 5px 10px #122b67;
 }
 
 .row {
     display: flex;
     align-items: center;
-    background-color: #ededea;
+    background-color: #c9dae8;
     border-radius: 1em;
     max-width: 24em;
     width: 100%;
     margin: 1em;
+    box-shadow: 0 5px 10px #afc8e4;
 }
 
 #input-box {
-    background-color: #ededea;
+    background-color: #c9dae8;
+    color: #163172;
     font-size: larger;
     outline: none;
     border: none;
@@ -45,10 +48,15 @@ body {
     padding: 0.4em 1em;
     max-width: 25em;
     width: 100%;
+    opacity: 0.6;
+}
+
+#input-box::placeholder {
+    color: #4175b9;
 }
 
 #pin-button {
-    background-color: #d20326;
+    background: linear-gradient(90deg, #163172, #1E56A0);
     color: #fcfaee;
     font-weight: bold;
     font-size: larger;
@@ -59,14 +67,40 @@ body {
 }
 
 #pin-button:hover {
-    background-color: #dc092c;
+    background: linear-gradient(90deg, #1E56A0, #163172);
 }
 
 #pin-button:active {
-    background-color: #b60522;
+    background: linear-gradient(90deg, #163172, #1E56A0);
+}
+
+#list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #list-container li {
     list-style-type: none;
+    background-color: #D6E4F0;
+    color: #4175b9;
+    padding: 0.5em;
+    margin: 0.3em;
+    border-radius: 1em;
+    box-shadow: 1px 1px 5px #afc8e4;
+    text-align: center;
 }
 
+#list-container span:nth-of-type(1) {
+    color: #122b67;
+    margin-right: 1em;
+}
+
+#list-container span:nth-of-type(2) {
+    background-color: red;
+    color: #F6F6F6;
+    padding: 0.5em 0.8em;
+    border-radius: 50%;
+    margin-left: 1em;
+}
