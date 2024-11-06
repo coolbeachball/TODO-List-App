@@ -1,0 +1,84 @@
+$darkestBlue: #163172;
+$primary-blue: #1E56A0;
+$secondary-blue: #4175b9;
+$fadedWhite: #D6E4F0;
+$white: #F6F6F6;
+
+@mixin flexBox() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    background-color: $darkestBlue;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    @include flexBox();
+    flex-direction: column;
+    max-width: 28em;
+    width: 100%;
+    background-color: $white;
+    border-radius: 1em;
+    padding: 3em;
+    margin: auto;
+    box-shadow: 0 5px 10px #122b67;
+}
+
+.row {
+    width: 20em;
+    height: 2.5em;
+    background-color: $fadedWhite;
+    border-radius: 3em;
+    @include flexBox();
+    flex-direction: row;
+}
+
+.inputBox {
+    background-color: $fadedWhite;
+    color: $darkestBlue;
+    font-size: larger;
+    outline: none;
+    border: none;
+    border: none;
+    border-radius: 1em;
+    padding: 0.4em 1em;
+    max-width: 25em;
+    width: 100%;
+}
+
+.inputBox::placeholder {
+    color: $secondary-blue;
+}
+
+.pinBtn {
+    background-color: $primary-blue;
+    color: $white;
+    font-weight: bold;
+    font-size: larger;
+    border: none;
+    border-radius: 1em;
+    padding: 0.4em 1em;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.pinBtn:active {
+    background-color: $secondary-blue;
+}
+
+.listItem {
+    color: $primary-blue;
+    list-style: none;
+}
