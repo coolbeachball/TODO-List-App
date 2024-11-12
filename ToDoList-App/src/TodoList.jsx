@@ -1,6 +1,7 @@
 import ListItem from "./ListItem"
 
 function TodoList() {
+  return (
     <div className="todo-list">
         <div className="row">
           <input type="text" className="inputBox" placeholder="add task" />
@@ -8,6 +9,7 @@ function TodoList() {
         </div>
         <ListItem />
     </div>
+  )
 }
 
 export default TodoList
