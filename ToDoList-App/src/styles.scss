@@ -22,63 +22,64 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    .todo-list {
+        @include flexBox();
+        flex-direction: column;
+        max-width: 28em;
+        width: 100%;
+        background-color: $white;
+        border-radius: 1em;
+        padding: 3em;
+        margin: auto;
+        box-shadow: 0 5px 10px #122b67;
+
+        .row {
+            width: 20em;
+            height: 2.5em;
+            background-color: $fadedWhite;
+            border-radius: 3em;
+            @include flexBox();
+            flex-direction: row;
+            
+            .inputBox {
+                background-color: $fadedWhite;
+                color: $darkestBlue;
+                font-size: larger;
+                outline: none;
+                border: none;
+                border: none;
+                border-radius: 1em;
+                padding: 0.4em 1em;
+                max-width: 25em;
+                width: 100%;
+            }
+            
+            .inputBox::placeholder {
+                color: $secondary-blue;
+            }
+            
+            .pinBtn {
+                background-color: $primary-blue;
+                color: $white;
+                font-weight: bold;
+                font-size: larger;
+                border: none;
+                border-radius: 1em;
+                padding: 0.4em 1em;
+                border-radius: 1em;
+                cursor: pointer;
+            }
+            
+            .pinBtn:active {
+                background-color: $secondary-blue;
+            }
+        }
+        
+        .listItem {
+            color: $primary-blue;
+            list-style: none;
+        }
+    }
 }
 
-.todo-list {
-    @include flexBox();
-    flex-direction: column;
-    max-width: 28em;
-    width: 100%;
-    background-color: $white;
-    border-radius: 1em;
-    padding: 3em;
-    margin: auto;
-    box-shadow: 0 5px 10px #122b67;
-}
-
-.row {
-    width: 20em;
-    height: 2.5em;
-    background-color: $fadedWhite;
-    border-radius: 3em;
-    @include flexBox();
-    flex-direction: row;
-}
-
-.inputBox {
-    background-color: $fadedWhite;
-    color: $darkestBlue;
-    font-size: larger;
-    outline: none;
-    border: none;
-    border: none;
-    border-radius: 1em;
-    padding: 0.4em 1em;
-    max-width: 25em;
-    width: 100%;
-}
-
-.inputBox::placeholder {
-    color: $secondary-blue;
-}
-
-.pinBtn {
-    background-color: $primary-blue;
-    color: $white;
-    font-weight: bold;
-    font-size: larger;
-    border: none;
-    border-radius: 1em;
-    padding: 0.4em 1em;
-    border-radius: 1em;
-    cursor: pointer;
-}
-
-.pinBtn:active {
-    background-color: $secondary-blue;
-}
-
-.listItem {
-    color: $primary-blue;
-    list-style: none;
-}
