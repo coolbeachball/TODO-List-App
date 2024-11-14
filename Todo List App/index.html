@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List App</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" />
 </head>
 <body>
     <div class="container">
@@ -15,7 +16,25 @@
                     <button class="pinBtn" title="click to pin your task">Pin</button>
                 </div>
             </div>
-            <ol class="listContainer"></ol>
+            <div class="listContainer">
+                <div class="containerLi">
+                    <div class="up-down">
+                        <button class="move-up material-symbols-outlined">
+                            arrow_upward
+                        </button>
+                        <button class="move-down material-symbols-outlined">
+                            arrow_downward
+                        </button>
+                    </div>
+                    <button class="remove material-symbols-outlined">
+                        close
+                    </button>
+                    <span class="task-text">${inputBox.value}</span> 
+                    <button class="checked material-symbols-outlined">
+                        check
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./app.js"></script>

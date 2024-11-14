@@ -2,200 +2,206 @@
     --dark-blue: #1d3557;
     --blue: #457b9d;
     --red: #e63946;
+    --green: #0ec40e;
     --light: #eef6fa;
     --light-blue: #d0e6f1;
     --very-light-blue: #edf8fa;
     --active-blue: #6aa3c7;
     --active-red: #e9525e;
-    --green: #0ec40e;
+    --active-green: #66d366; 
     --shadow: #9caab3;
 }
-
+/* Add transition effect for various changes */
 * {
-    margin: 0;
     border: none;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
     background-color: var(--blue);
+    margin: 0;
 }
 
+/* the whole page */
 .container {
-    background-color: var(--blue);
     width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.todolist {
-    background-color: var(--light-blue);
-    box-shadow: 0 5px 15px var(--dark-blue);
-    max-width: 50em;
-    width: 50%;
-    border-radius: 1em;
-    padding: 6em 3em 1em;
-    margin-bottom: 5em;
+    margin: 1em 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: transform 0.3s ease-out; /* Smooth transition for container */
 }
 
-.addTask {
-    position: fixed;
-    top: 0%;
-    left: 21.25%;
+/* Todolist background */
+.todolist {
     background-color: var(--light);
-    box-shadow: 0 2px 20px var(--dark-blue);
-    max-width: 70em;
-    width: 45%;
-    height: 1em;
-    padding: 2em 5em;
-    border-radius: 0 0 1em 1em;
-    display: flex;
-    align-items: center;
+    padding: 1em;
+    border-radius: 1em;
+    max-width: 35em;
+    width: 100%;
 }
 
+/* Row container styles */
 .row {
     background-color: var(--light-blue);
-    height: 2.1em;
     border-radius: 1em;
-    margin: 1.5em 2em;
-    max-width: 34em;
-    width: 100%;
+    margin-right: 0 auto;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: fixed;
+    justify-content: space-between;
 }
 
+/* Input box and pin button */
 .inputBox {
-    background-color: transparent;
+    background-color: var(--light-blue);
     color: var(--dark-blue);
-    max-width: 23.4em;
-    min-width: 5em;
-    width: 100%;
-    font-size: larger;
-    padding: 0.3em 0 0.3em 0.4em;
-    border-radius: 1em;
     outline: none;
-    z-index: 1;
+    transition: all 0.3s ease; /* Smooth input box focus effect */
 }
 
 .inputBox::placeholder {
-    color: #457b9d;
+    color: var(--blue);
+}
+
+.inputBox, .pinBtn {
+    padding: 0.5em;
+    font-size: larger;
+    border-radius: 0.8em;
 }
 
 .pinBtn {
     background-color: var(--red);
     color: var(--light);
-    font-size: larger;
-    width: 4em;
-    padding: 0.3em 1.25em;
-    margin-left: 1em;
-    border-radius: 1em;
-    z-index: 2;
-}
-
-.pinBtn:active {
-    background-color: var(--active-red);
-}
-
-.listContainer {
-    color: var(--dark-blue);
-    max-width: 35em;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-li {
-    background-color: var(--very-light-blue);
-    box-shadow: 2px 2px 5px var(--shadow);
-    width: 93%;
-    padding: 0.5em;
-    margin: 0.1em;
-    border-radius: 0.5em;
-    font-size: 1.3em;
-    display: flex;
-    align-items: center;
-    animation: appear 0.5s;
-}
-
-@keyframes appear {
-    0% {
-        opacity: 0;
-        padding: 0;
-        width: 75%;
-        font-size: xx-small;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.containerLi {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.checked {
-    background-color: var(--green);
-    color: var(--light);
-    border-radius: 1em;
-    margin: 0.5em 1em 0.5em auto;
-    width: 2em;
-    height: 2em;
-}
-
-.remove {
-    background-color: transparent;
-    margin-right: 1em;
-    font-weight: 600;
-}
-
-.pinBtn, .checked, .remove {
+    padding: 0.5em 1em;
     cursor: pointer;
 }
 
-del {
-    color: gray;
+.pinBtn:hover {
+    background-color: var(--active-red);
 }
 
+/* List container margin */
+.listContainer {
+    margin-top: 3em;
+}
+
+/* Task item container */
+.containerLi {
+    list-style-type: none;
+    background-color: var(--light-blue);
+    margin: 0.5em 2em;
+    padding: 0.5em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    opacity: 0; /* Start invisible for animation */
+    transform: translateY(20px); /* Start off 20px below */
+    animation: slideIn 0.4s ease-out forwards; /* Animate slide in */
+}
+
+.containerLi button {
+    cursor: pointer;
+}
+
+/* Animation for task sliding in */
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Task text styling */
+.task-text {
+    color: var(--dark-blue);
+    display: flex;
+    align-items: center;
+    margin: 0 1em;
+    overflow-x: scroll; /* scroll on longer words */
+    transition: all 0.3s ease; /* Smooth text changes */
+}
+
+/* Task completion animation (cross out) */
+.task-text.completed {
+    text-decoration: line-through;
+    color: grey;
+    transition: text-decoration 0.3s ease, color 0.3s ease; /* Smooth crossing out */
+}
+
+/* Button container for move-up/move-down */
 .up-down {
+    color: var(--light);
     display: flex;
     flex-direction: column;
+    margin-right: 0.5em;
 }
 
+/* Move-up and move-down buttons */
+
 .move-up, .move-down {
-    padding: 0.1em;
-    width: 3em;
+    background-color: transparent;
+    color: var(--dark-blue);
+    padding: 0.3em;
+    border-radius: 1em;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.move-up:hover, .move-down:hover {
+    background-color: var(--active-blue); /* Change on hover */
+}
+
+/* Remove button */
+.remove {
+    background-color: transparent;
+    color: var(--red);
+    padding: 0.3em;
+    border-radius: 50%;
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+.remove:hover {
+    background-color: var(--active-red); /* Hover effect */
+    color: var(--light);
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth button effects */
+}
+
+/* Check button for task completion */
+.checked {
+    background-color: transparent;
+    color: var(--green);
+    margin-left: auto;
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth button effects */
+}
+
+.checked:hover {
+    background-color: var(--green); /* Hover effect */
     color: var(--light);
 }
 
-.move-up {
-    background-color: var(--blue);
-    border-radius: 1em 1em 0 0;
-    margin-bottom: 0.1em;
+/* Task removal animation (fade out) */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(20px); /* Move downward slightly while fading */
+    }
 }
 
-.move-up:active {
-    background-color: var(--active-blue);
+/* Slide task out when removed */
+.containerLi.removed {
+    animation: fadeOut 0.4s ease-out forwards;
 }
 
-.move-down {
-    background-color: var(--red);
-    margin-right: 1em;
-    border-radius: 0 0 1em 1em;
-    margin-top: 0.1em;
-}
-
-.move-down:active {
-    background-color: var(--active-red);
+/* Add transition for smooth task movement */
+.containerLi.moving-up,
+.containerLi.moving-down {
+    transition: transform 0.3s ease-in-out; /* Smooth transition for position change */
 }

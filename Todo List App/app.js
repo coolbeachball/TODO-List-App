@@ -1,74 +1,68 @@
-const inputBox = document.querySelector('.inputBox'); // selects input tag with inputBox as its id
-const pinBtn = document.querySelector('.pinBtn'); // selects button element with the pinBtn as its class
-const listContainer = document.querySelector('.listContainer'); // selects ul element with listContainer as its class
+const inputBox = document.querySelector('.inputBox'); // Select the input box
+const pinBtn = document.querySelector('.pinBtn'); // Select the pin button
+const listContainer = document.querySelector('.listContainer'); // Select the container for tasks
 
 // Add task when pinBtn is clicked
 pinBtn.onclick = () => {
-    // Check if input is empty
     if (inputBox.value === '') {
         alert('You must add a task!');
-        return; // Exit the function if no task is provided
+        return; // Exit if the input box is empty
     }
-    
-    // Create a new list item
-    const listItem = document.createElement('li');
 
-    // Add the task and two buttons (Checked and Remove)
+    // Create a new list item (using div)
+    const listItem = document.createElement('div');
+    listItem.classList.add('containerLi'); // Add a class for styling
+
+    // Insert the task and buttons (move up, move down, remove, check)
     listItem.innerHTML = `
-        <div class="containerLi">
-            <div class="up-down">
-                <button class="move-up">↑</button>
-                <button class="move-down">↓</button>
-            </div>
-            <button class="remove">X</button>
-            </div>
-            <span class="task-text">${inputBox.value}</span> 
-        <button class="checked">✓</button>
-    `; // Add the task and the buttons
+        <div class="up-down">
+            <button class="move-up material-symbols-outlined">arrow_upward</button>
+            <button class="move-down material-symbols-outlined">arrow_downward</button>
+        </div>
+        <button class="remove material-symbols-outlined">close</button>
+        <span class="task-text">${inputBox.value}</span>
+        <button class="checked material-symbols-outlined">check</button>
+    `;
 
-    // Append the new list item to the list container
+    // Append the new task to the list container
     listContainer.appendChild(listItem);
 
-    // Clear the input box
+    // Clear the input box after adding the task
     inputBox.value = '';
 };
 
-// Handle clicks on the delete button using event delegation
+// Handle clicks on the remove, check, move-up, and move-down buttons
 listContainer.addEventListener('click', (param) => {
-    const listItem = param.target.closest('li'); // Find the list item
+    // Find the closest .containerLi div (task item)
+    const listItem = param.target.closest('.containerLi'); // Use .containerLi for div elements
 
-    if (!listItem) return; // Exit if the click is not on a valid list item
+    if (!listItem) return; // Exit if the click is not on a valid task item
 
     // If the clicked element is the checked button
     if (param.target.classList.contains('checked')) {
         const taskText = listItem.querySelector('.task-text');
-        
-        // Cross out only the task text
-        taskText.innerHTML = `<del>${taskText.textContent}</del>`;
-        
-        // Remove the check button
-        const checkButton = listItem.querySelector('.checked');
-        checkButton.remove();
+        taskText.classList.toggle('completed'); // Toggle completion status
+        param.target.remove(); // Remove the check button after marking as done
     }
 
     // If the clicked element is the remove button
     if (param.target.classList.contains('remove')) {
-        listItem.remove(); // Remove the entire list item
+        listItem.remove(); // Remove the entire task
     }
 
     // If the clicked element is the move-up button
     if (param.target.classList.contains('move-up')) {
-        const previousItem = listItem.previousElementSibling; // Get the previous list item
+        const previousItem = listItem.previousElementSibling;
         if (previousItem) {
-            listContainer.insertBefore(listItem, previousItem); // Move the list item up
+            listContainer.insertBefore(listItem, previousItem); // Move the task up
         }
     }
 
     // If the clicked element is the move-down button
     if (param.target.classList.contains('move-down')) {
-        const nextItem = listItem.nextElementSibling; // Get the next list item
+        const nextItem = listItem.nextElementSibling;
         if (nextItem) {
-            listContainer.insertBefore(nextItem, listItem); // Move the list item down
+            listContainer.insertBefore(nextItem, listItem); // Move the task down
         }
     }
 });
