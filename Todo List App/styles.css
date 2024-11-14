@@ -17,31 +17,49 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+    background-color: var(--blue);
+}
+
 .container {
     background-color: var(--blue);
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .todolist {
-    background-color: var(--light);
+    background-color: var(--light-blue);
     box-shadow: 0 5px 15px var(--dark-blue);
     max-width: 50em;
     width: 50%;
     border-radius: 1em;
-    padding: 3em;
+    padding: 6em 3em 1em;
+    margin-bottom: 5em;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.row {
+.addTask {
+    position: fixed;
+    top: 0%;
+    left: 21.25%;
     background-color: var(--light);
-    box-shadow: 1px 0 10px var(--light-blue);
+    box-shadow: 0 2px 20px var(--dark-blue);
+    max-width: 70em;
+    width: 45%;
+    height: 1em;
+    padding: 2em 5em;
+    border-radius: 0 0 1em 1em;
+    display: flex;
+    align-items: center;
+}
+
+.row {
+    background-color: var(--light-blue);
     height: 2.1em;
     border-radius: 1em;
     margin: 1.5em 2em;
@@ -50,6 +68,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    position: fixed;
 }
 
 .inputBox {
@@ -91,6 +110,8 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 li {
@@ -103,6 +124,19 @@ li {
     font-size: 1.3em;
     display: flex;
     align-items: center;
+    animation: appear 0.5s;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        padding: 0;
+        width: 75%;
+        font-size: xx-small;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .containerLi {
