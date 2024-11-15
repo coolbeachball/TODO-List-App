@@ -1,4 +1,4 @@
-**📝 CoolBeachBall's Epic To-Do List**
+#📝 CoolBeachBall's Epic To-Do List
 -----------------------------------
 Hey there, productivity hero! 🎉 Meet CoolBeachBall's To-Do List, the simplest, coolest, and most flexible little app to manage all your tasks and dreams! Built with love, care, and a sprinkle of cool vibes. 😎
 
