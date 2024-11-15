@@ -26,7 +26,7 @@ Whether it’s one task or one thousand, this list can handle it. Add to your he
 No clutter. No nonsense. Just a clean and functional to-do list that gets the job done. Built with:
 
 
-<div style="text-align: center;">
+<div style="text-align: center; display: flex; flex-direction: row;">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Logo" style="width: 80px; height: auto;" />
   <p>HTML</p>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Logo" style="width: 80px; height: auto;" />
